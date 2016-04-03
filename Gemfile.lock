@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/satnegirji/language
+  revision: a9efdafd68e0f82376ecb5c32270e02ff86600ca
+  specs:
+    language (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -167,6 +173,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  language!
   listen (~> 3.0.5)
   pg
   puma
