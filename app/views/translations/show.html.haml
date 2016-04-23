@@ -1,0 +1,9 @@
+%p
+  = "Translation #{@translation.id} (#{@translation.original_id}) -> (#{@translation.translation.id})"
+  %p
+    = "Original: #{@translation.original.body}"
+  %p
+    = "Translation: #{@translation.translation.body}"
+  %p
+    = "Word 1: #{Word.find(1).inspect}"
+    = "Word 2: #{Word.find(2).inspect}"

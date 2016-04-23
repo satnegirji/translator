@@ -1,0 +1,6 @@
+= form_for @translation do |f|
+  = dynamic_word_field :translation, :original
+  &rarr;
+  = dynamic_word_field :translation, :translation
+  %hr
+  = f.submit

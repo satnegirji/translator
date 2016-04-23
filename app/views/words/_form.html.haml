@@ -1,0 +1,5 @@
+= form_for(@word) do |f|
+  = f.text_field :body
+  = f.select :language_id, options_for_select(languages_for_select)
+  = f.select :word_class_id, options_for_select(word_classes_for_select)
+  = f.submit

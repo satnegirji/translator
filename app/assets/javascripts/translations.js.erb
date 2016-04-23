@@ -1,0 +1,44 @@
+$(document).ready( function() {
+  var set_word = function(id, body, language_id) {
+
+  }
+  var start_search = function(search_term, ev) {
+    var destination = ev.parent().attr('val');
+
+    $.ajax({
+      url: "/words/search?keyword="+search_term,
+      method: "GET",
+      success: function(data) {
+        show_autocomplete(search_term, data, destination);
+      },
+      error: function() {
+        console.error("error");
+      }
+    });
+  }
+
+  if($('form#new_translation').length !== 0) {
+    /*
+    $('input.searchable').on('input', function(ev) {
+      var search_term = $(this).val();
+      if(search_term.length > 1) {
+        start_search($(this).val(), $(this));
+      }
+    });
+    */
+    $('#original_body').autocomplete({
+      serviceUrl: '/words/search',
+      paramName: "keyword",
+      minChars: 2,
+      onSelect: function (suggestion) {
+        var word_id = suggestion.data.id;
+        var body = suggestion.value;
+        var language_id = suggestion.data.language_id;
+        //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        console.log("  you selected: ", suggestion.value, suggestion.data);
+        console.log($(this));
+      }
+    });
+  }
+
+});

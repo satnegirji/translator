@@ -1,0 +1,6 @@
+%tr
+  %td= word.id
+  %td= word.body
+  %td= word.keyword
+  %td= Language.find(word.language_id)
+  %td= Language::WordClass.find(word.word_class_id)

@@ -1,0 +1,8 @@
+%ul
+  %li= @word.id
+  %li= @word.keyword
+  %li= @word.body
+  %li= Language.find(@word.language_id)
+  %li= Language::WordClass.find(@word.word_class_id)
+%p
+  = link_to "List all words", words_path
