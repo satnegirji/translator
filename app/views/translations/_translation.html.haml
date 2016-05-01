@@ -1,0 +1,9 @@
+%tr
+  %td= translation.id
+  %td= translation.created_at.to_s(:short)
+
+  %td= link_to translation.original.body, word_path(translation.original.id)
+  %td= "(#{Language.find(translation.original.language_id)})"
+  %td &rarr;
+  %td= link_to translation.translation.body, word_path(translation.translation.id)
+  %td= "(#{Language.find(translation.translation.language_id)})"

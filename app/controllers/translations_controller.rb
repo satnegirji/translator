@@ -4,6 +4,10 @@ class TranslationsController < ApplicationController
     @translation = Translation.new
   end
 
+  def index
+    @translations = Translation.all.order(:created_at)
+  end
+
   def create
     translation = translation_params
     original = original_params
@@ -11,14 +15,14 @@ class TranslationsController < ApplicationController
       original_id = original.fetch("word_id")
     else
       p = original.select { |k,v| k != "word_id"  }.select { |k,v| k != "create_new"  }
-      word = Word.create!( p )
+      word = Word.create( p )
       original_id = word.id
     end
     if translation.fetch("create_new", "false") != "false"
       translation_id = translation.fetch("word_id")
     else
       p = translation.select { |k,v| k != "word_id"  }.select { |k,v| k != "create_new"  }
-      word = Word.create!( p )
+      word = Word.create( p )
       translation_id = word.id
     end
     translation = Translation.create!( original_id: original_id, translation_id: translation_id )
