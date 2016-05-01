@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :translations, only: [:new, :create, :show]
+  resources :translations, only: [:index, :new, :create, :show]
 end

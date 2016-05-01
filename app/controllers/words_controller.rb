@@ -25,7 +25,7 @@ class WordsController < ApplicationController
     thejson = {
 
     }
-    thejson["suggestions"] = results.map { |w| {"value" => "#{w.body} (#{w.language_id})", "data" => { "id" => w.id, "language_id" => w.language_id }}}
+    thejson["suggestions"] = results.map { |w| {"value" => "#{w.body} (#{w.language_id})", "data" => { "id" => w.id, "language_id" => w.language_id, "word_class_id" => w.word_class_id }}}
 
     # "value": "United Arab Emirates", "data": "AE" },
     #    { "value": "United Kingdom",       "data": "UK" },

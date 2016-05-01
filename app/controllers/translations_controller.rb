@@ -5,29 +5,15 @@ class TranslationsController < ApplicationController
   end
 
   def index
-    @translations = Translation.all.order(:created_at)
+    @translations = Translation.all.order(created_at: :desc)
   end
 
   def create
-    translation = translation_params
-    original = original_params
-    if original.fetch("create_new", "false") != "false"
-      original_id = original.fetch("word_id")
+    if @translation = Translation.create(translation_params)
+      redirect_to translation_path(@translation)
     else
-      p = original.select { |k,v| k != "word_id"  }.select { |k,v| k != "create_new"  }
-      word = Word.create( p )
-      original_id = word.id
+      render 'new'
     end
-    if translation.fetch("create_new", "false") != "false"
-      translation_id = translation.fetch("word_id")
-    else
-      p = translation.select { |k,v| k != "word_id"  }.select { |k,v| k != "create_new"  }
-      word = Word.create( p )
-      translation_id = word.id
-    end
-    translation = Translation.create!( original_id: original_id, translation_id: translation_id )
-
-    redirect_to translation_path(translation)
   end
 
   def show
@@ -36,25 +22,8 @@ class TranslationsController < ApplicationController
 
   private
 
-  def create_word_from(params)
-    Word.create( body: params[:translation_translation])
-  end
-
   def translation_params
-    params.require(:translation).permit( permit_params )
+    params.require(:translation).permit( :original_id, :translation_id )
   end
 
-  def original_params
-    params.require(:original).permit( permit_params )
-  end
-
-  def permit_params
-    [
-      :body, :language_id, :word_class_id, :create_new, :word_id
-    ]
-  end
-
-  def translation_params_fetch(param)
-    translation_params.select { |key| key.to_s.starts_with?("#{param}") }
-  end
 end

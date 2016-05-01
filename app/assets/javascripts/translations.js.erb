@@ -26,17 +26,22 @@ $(document).ready( function() {
       }
     });
     */
-    $('#original_body').autocomplete({
+    $('.searchable').autocomplete({
       serviceUrl: '/words/search',
       paramName: "keyword",
       minChars: 2,
       onSelect: function (suggestion) {
+        var parent = $(this).parent();
         var word_id = suggestion.data.id;
         var body = suggestion.value;
         var language_id = suggestion.data.language_id;
-        //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-        console.log("  you selected: ", suggestion.value, suggestion.data);
-        console.log($(this));
+        var word_class_id = suggestion.data.word_class_id;
+        var primary = parent.find('input[type="hidden"]').first();
+        parent.find('.language_id').first().val(language_id);
+        parent.find('.word_class_id').first().val(word_class_id);
+        parent.find('.body').first().val(body);
+        primary.val( suggestion.data.id );
+        console.log("  selecting: ", suggestion.data.id, "  body:",body, "  language_id:",language_id, "  word_class_id: ",word_class_id);
       }
     });
   }
