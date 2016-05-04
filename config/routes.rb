@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :translations, only: [:index, :new, :create, :show]
+
+  root to: "translations#new"
 end
