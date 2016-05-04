@@ -18,7 +18,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem "haml"
-gem "purecss-rails"
 
 gem "language", git: "git://github.com/satnegirji/language"
 
