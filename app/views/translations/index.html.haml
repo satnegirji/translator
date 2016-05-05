@@ -1,2 +1,14 @@
-%table.translations
-  = render @translations
+%table.pure-table.translations
+  %thead
+    %tr
+      %th #
+      %th Pvm
+      %th Alkuperäinen
+      %th Kieli
+      %th &nbsp;
+      %th Käännös
+      %th Kieli
+  %tbody
+    = render @translations
+%p
+  = link_to "Luo uusi käännös &rarr;".html_safe, new_translation_path, class: "pure-button pure-button-primary"

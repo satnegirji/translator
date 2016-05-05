@@ -12,7 +12,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    if @word = Word.create!( word_params )
+    if (@word = Word.create!(word_params))
       redirect_to word_path(@word)
     else
       render 'new'
@@ -36,6 +36,6 @@ class WordsController < ApplicationController
   private
 
   def word_params
-    params.require(:word).permit(:body, :language_id, :word_class_id )
+    params.require(:word).permit(:body, :language_id, :word_class_id)
   end
 end

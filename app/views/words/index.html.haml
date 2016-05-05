@@ -1,4 +1,12 @@
-%table
-  = render @words
+%table.pure-table
+  %thead
+    %tr
+      %th #
+      %th Sana
+      %th Hakutermi
+      %th Kieli
+      %th Tyyppi
+  %tbody
+    = render @words
 %p
-  = link_to "New word", new_word_path
+  = link_to "Luo uusi sana &rarr;".html_safe, new_word_path, class: "pure-button pure-button-primary"
