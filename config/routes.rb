@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
   resources :words, only: [:index, :new, :show, :create] do
     collection do
-      get 'search'
+      get 'search', as: :search
     end
   end
 
   resources :translations, only: [:index, :new, :create, :show]
 
-  root to: "translations#new"
+  root to: "home#index"
 end
