@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def search
-    render text: "Jee"
+    @words = Word.search(params[:keyword])
   end
 end
