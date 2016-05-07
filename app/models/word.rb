@@ -6,6 +6,8 @@ class Word < ApplicationRecord
 
   before_validation :set_accent
 
+  scope :most_recent, ->(limit = 15) { order(created_at: :desc).limit(limit) }
+
   def set_accent
     self[:keyword] = Language::Accent.strip(self[:body] || "")
   end
