@@ -18,15 +18,7 @@ $(document).ready( function() {
   }
 
   if($('form#new_translation').length !== 0) {
-    /*
-    $('input.searchable').on('input', function(ev) {
-      var search_term = $(this).val();
-      if(search_term.length > 1) {
-        start_search($(this).val(), $(this));
-      }
-    });
-    */
-    $('.searchable').autocomplete({
+    params = {
       serviceUrl: '/words/search',
       paramName: "keyword",
       minChars: 2,
@@ -37,13 +29,16 @@ $(document).ready( function() {
         var language_id = suggestion.data.language_id;
         var word_class_id = suggestion.data.word_class_id;
         var primary = parent.find('input[type="hidden"]').first();
+
         parent.find('.language_id').first().val(language_id);
         parent.find('.word_class_id').first().val(word_class_id);
         parent.find('.body').first().val(body);
         primary.val( suggestion.data.id );
-        console.log("  selecting: ", suggestion.data.id, "  body:",body, "  language_id:",language_id, "  word_class_id: ",word_class_id);
       }
-    });
+    }
+
+    $('input#original_body').autocomplete(params);
+    $('input#translation_body').autocomplete(params);
   }
 
 });

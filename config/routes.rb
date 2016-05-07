@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'search', to: "home#search", as: :search_for_words
+
   resources :translations, only: [:index, :new, :create, :show]
 
   root to: "home#index"

@@ -3,4 +3,8 @@ class HomeController < ApplicationController
     @latest_words = Word.most_recent
     @latest_translations = Translation.most_recent
   end
+
+  def search
+    render text: "Jee"
+  end
 end

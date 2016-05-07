@@ -20,12 +20,9 @@ class WordsController < ApplicationController
   end
 
   def search
-    keyword = Language::Accent.strip(params[:keyword])
-    results = Word.where("keyword LIKE ?", "#{keyword}%").limit(10)
-    # "value": "United Arab Emirates", "data": "AE" },
-    #    { "value": "United Kingdom",       "data": "UK" },
-    #    { "value": "United States",        "data": "US" }
-    render json: results.map { |w| {"value" => w.body, "data" => { "id" => w.id, "language_id" => w.language_id, "word_class_id" => w.word_class_id }}}
+    results = Word.search(params[:keyword])
+    items = results.map { |w| {"value" => w.body, "data" => { "id" => w.id, "language_id" => w.language_id, "word_class_id" => w.word_class_id }}}
+    render json: { "suggestions": items }
   end
 
   private

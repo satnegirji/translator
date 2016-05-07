@@ -8,6 +8,11 @@ class Word < ApplicationRecord
 
   scope :most_recent, ->(limit = 15) { order(created_at: :desc).limit(limit) }
 
+  def self.search(arg)
+    keyword = Language::Accent.strip(arg)
+    Word.where("keyword LIKE ?", "#{keyword}%").limit(10)
+  end
+
   def set_accent
     self[:keyword] = Language::Accent.strip(self[:body] || "")
   end
