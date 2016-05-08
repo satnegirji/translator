@@ -1,8 +1,6 @@
 %h1.content-subhead
   Haku
-= form_tag(search_for_words_path, method: :post, class: "pure-form") do
-  = text_field_tag :keyword, ""
-  = submit_tag "Hae", class: "pure-button pure-button-primary"
+= render 'form'
 .pure-g
   .pure-u-1-2
     %h1.content-subhead

@@ -1,4 +1,9 @@
 %h1.content-subhead
+  Haku
+= render 'form'
+%h1.content-subhead
   Tulokset
 %ul
   = render partial: "word", collection: @words, as: :word
+%p
+  = link_to "Etusivulle", root_path, class: "pure-button pure-button-primary"

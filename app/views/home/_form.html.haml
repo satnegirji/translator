@@ -1,0 +1,3 @@
+= form_tag(search_for_words_path, method: :post, class: "pure-form") do
+  = text_field_tag :keyword, @keyword || ""
+  = submit_tag "Hae", class: "pure-button pure-button-primary"

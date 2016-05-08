@@ -6,5 +6,6 @@ class HomeController < ApplicationController
 
   def search
     @words = Word.search(params[:keyword])
+    @keyword = params[:keyword]
   end
 end
