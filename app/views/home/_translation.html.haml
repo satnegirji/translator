@@ -1,3 +1,8 @@
-%li
-  = link_to "#{translation.original.body} (#{Language::find(translation.original.language_id)}) &rarr; #{translation.translation.body} (#{Language::find(translation.translation.language_id)})".html_safe, translation
+%tr
+  %td= link_to translation.id, translation
+  %td= translation.original.body
+  %td= Language::find(translation.original.language_id)
+  %td &nbsp;
+  %td= translation.translation.body
+  %td= Language::find(translation.translation.language_id)
 

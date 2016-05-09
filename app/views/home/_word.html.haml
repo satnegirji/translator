@@ -1,3 +1,4 @@
-%li
-  = link_to word.body, word
-  %small= Language::find(word.language_id)
+%tr
+  %td= link_to word.id, word
+  %td= word.body
+  %td= Language::find(word.language_id)

@@ -2,13 +2,26 @@
   Haku
 = render 'form'
 .pure-g
-  .pure-u-1-2
+  .pure-u-1-3
     %h1.content-subhead
       Uusimmat sanat
-    %ul
+    %table.pure-table.pure-table-stacked
+      %thead
+        %tr
+          %th #
+          %th Sana
+          %th Kieli
       = render partial: "word", collection: @latest_words, as: :word
-  .pure-u-1-2
+  .pure-u-2-3
     %h1.content-subhead
       Uusimmat käännökset
-    %ul
+    %table.pure-table.pure-table-stacked
+      %thead
+        %tr
+          %th #
+          %th Alkuperäinen
+          %th Kieli
+          %th &rarr;
+          %th Käännös
+          %th Kieli
       = render partial: "translation", collection: @latest_translations, as: :translation
