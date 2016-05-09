@@ -1,7 +1,8 @@
 .pure-menu.pure-menu-horizontal
-  = link_to "Satnegirji", root_path, class: "pure-menu-heading pure-menu-link nav-element-fix"
+  .pure-menu-heading.nav-element-fix
+    = t('main_nav.menu_heading')
   %ul.pure-menu-list
-    %li.pure-menu-item= link_to "Etusivu", root_path, class: "pure-menu-link"
-    %li.pure-menu-item= link_to "Sanat", words_path, class: "pure-menu-link"
-    %li.pure-menu-item= link_to "Käännökset", translations_path, class: "pure-menu-link"
-    %li.pure-menu-item= link_to "Poistu", "#", class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.home_page_link'), root_path, class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.words_link'), words_path, class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.translations_link'), translations_path, class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.log_off_link'), "#", class: "pure-menu-link"

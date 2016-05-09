@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  main_nav:
+    menu_heading: "Satnegirji.org"
+    home_page_link: "Dashboard"
+    words_link: "Words"
+    translations_link: "Translations"
+    discussions_link: "Discussions"
+    log_off_link: "Log off"
+  words:
+    index:
+      title: "Words"
+      table:
+        body: "Body"
+        keyword: "Keyword"
+        language: "Language"
+        word_class: "Word Class"
+      create_new_word: "Create new word"
+
+

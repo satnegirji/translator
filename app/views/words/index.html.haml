@@ -1,14 +1,14 @@
 %h1.content-subhead
-  Sanat
+  = t('words.index.title')
 %table.pure-table
   %thead
     %tr
       %th #
-      %th Sana
-      %th Hakutermi
-      %th Kieli
-      %th Tyyppi
+      %th= t('words.index.table.body')
+      %th= t('words.index.table.keyword')
+      %th= t('words.index.table.language')
+      %th= t('words.index.table.word_class')
   %tbody
     = render @words
 %p
-  = link_to "Luo uusi sana &rarr;".html_safe, new_word_path, class: "pure-button pure-button-primary"
+  = link_to "#{t('words.index.create_new_word')} &rarr;".html_safe, new_word_path, class: "pure-button pure-button-primary"
