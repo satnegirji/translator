@@ -21,6 +21,9 @@ gem "haml"
 
 gem "language", git: "git://github.com/satnegirji/language"
 
+gem "devise"
+
+
 group :test do
   gem 'minitest-spec-rails'
   gem 'rails-controller-testing'
