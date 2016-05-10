@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   main_nav:
     menu_heading: "Satnegirji.org"
-    home_page_link: "Dashboard"
+    dashboard_link: "Dashboard"
     words_link: "Words"
     translations_link: "Translations"
     discussions_link: "Discussions"

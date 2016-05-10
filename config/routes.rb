@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/dashboard', to: "dashboard#index", as: :dashboard
   post 'search', to: "dashboard#search", as: :search_for_words
 
   resources :translations, only: [:index, :new, :create, :show]

@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @latest_words = Word.most_recent
     @latest_translations = Translation.most_recent

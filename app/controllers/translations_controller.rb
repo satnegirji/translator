@@ -1,4 +1,6 @@
 class TranslationsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @search_words_path = search_words_path
     @translation = Translation.new

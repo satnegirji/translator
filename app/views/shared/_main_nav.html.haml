@@ -2,7 +2,7 @@
   .pure-menu-heading.nav-element-fix
     = t('main_nav.menu_heading')
   %ul.pure-menu-list
-    %li.pure-menu-item= link_to t('main_nav.home_page_link'), root_path, class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.dashboard_link'), dashboard_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.words_link'), words_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.translations_link'), translations_path, class: "pure-menu-link"
-    %li.pure-menu-item= link_to t('main_nav.log_off_link'), "#", class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.log_off_link'), destroy_user_session_path, class: "pure-menu-link", method: :delete
