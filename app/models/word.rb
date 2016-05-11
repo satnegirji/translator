@@ -2,7 +2,10 @@ class Word < ApplicationRecord
   validates :body, presence: true
   validates :keyword, presence: true
   validates :language_id, presence: true
+  validates :owner, presence: true
   has_many :translations, foreign_key: "original_id"
+
+  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
 
   before_validation :set_accent
 

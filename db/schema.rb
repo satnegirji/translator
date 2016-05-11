@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510143801) do
+ActiveRecord::Schema.define(version: 20160511201406) do
 
   create_table "translations", force: :cascade do |t|
     t.integer  "original_id",    null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160510143801) do
     t.integer  "word_class_id", default: 0, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "owner_id",      default: 0, null: false
   end
 
   add_index "words", ["keyword", "language_id"], name: "index_words_on_keyword_and_language_id"
