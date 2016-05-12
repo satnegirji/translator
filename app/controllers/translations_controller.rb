@@ -24,8 +24,8 @@ class TranslationsController < ApplicationController
 
   private
 
-  def translation_params
-    params.require(:translation).permit( :original_id, :translation_id )
+  def translation_params(owner_id = current_user.id)
+    params.require(:translation).permit( :original_id, :translation_id ).merge( owner_id: owner_id)
   end
 
 end

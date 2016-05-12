@@ -4,14 +4,12 @@
   .row.original
     = text_field_tag :original_body, "", class: "body searchable"
     = select_tag(:original_language_id, options_for_select(languages_for_select), class: "language_id")
-    = select_tag(:original_word_class_id, options_for_select(word_classes_for_select), class: "word_class_id")
     = f.hidden_field :original_id, class: "primary"
   %h1.content-subhead
     Käännös
   .row.original
     = text_field_tag :translation_body, "", class: "body searchable"
     = select_tag(:translation_language_id, options_for_select(languages_for_select), class: "language_id")
-    = select_tag(:translation_word_class_id, options_for_select(word_classes_for_select), class: "word_class_id")
     = f.hidden_field :translation_id, class: "primary"
   .row
     = f.submit("Luo käännös &rarr;".html_safe, class: "pure-button pure-button-primary")
