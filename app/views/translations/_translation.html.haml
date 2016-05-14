@@ -7,4 +7,4 @@
   %td &rarr;
   %td= link_to translation.translation.body, word_path(translation.translation.id)
   %td= "(#{Language.find(translation.translation.language_id)})"
-  %td= translation.owner.email
+  %td= translation.creator.email

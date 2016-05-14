@@ -25,6 +25,6 @@
       %td= @word.updated_at.to_s(:short)
     %tr
       %td Luonut
-      %td= @word.owner.email
+      %td= @word.creator.email
 %p
   = link_to "Palaa takaisin", words_path

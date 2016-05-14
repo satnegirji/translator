@@ -29,7 +29,7 @@ class WordsController < ApplicationController
 
   private
 
-  def word_params(owner_id = current_user.id)
-    params.require(:word).permit(:body, :language_id, :word_class_id).merge( owner_id: owner_id)
+  def word_params(creator_id = current_user.id)
+    params.require(:word).permit(:body, :language_id, :word_class_id).merge( creator_id: creator_id)
   end
 end
