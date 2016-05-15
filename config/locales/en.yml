@@ -38,5 +38,18 @@ en:
         language: "Language"
         word_class: "Word Class"
       create_new_word: "Create new word"
+  users:
+    index:
+      title: "Users"
+      table:
+        profile_name: "Profile Name"
+        email: "Email"
+        last_logon_at: "Last Logon At"
+        created_at: "Created At"
+    show:
+      title: "User details"
+      table:
+        profile_name: "Profile name"
+        email: "Email"
 
 
