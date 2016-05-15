@@ -30,6 +30,19 @@ en:
     users_link: "Users"
     profile_link: "Your Profile"
     log_off_link: "Log off"
+  dashboard:
+    index:
+      title: "Dashboard"
+      recent_words: "Recent Words"
+      recent_translations: "Recent Translations"
+      table:
+        body: "Body"
+        language: "Language"
+        translation: "Translation"
+        original: "Original"
+    form:
+      submit: "Search"
+
   words:
     index:
       title: "Words"
