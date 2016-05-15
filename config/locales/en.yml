@@ -27,6 +27,7 @@ en:
     words_link: "Words"
     translations_link: "Translations"
     discussions_link: "Discussions"
+    users_link: "Users"
     log_off_link: "Log off"
   words:
     index:
