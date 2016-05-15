@@ -1,15 +1,15 @@
-= form_for(@translation, html: { class:"pure-form translations"} ) do |f|
-  %h1.content-subhead
-    Alkuperäinen
-  .row.original
+= form_for(@translation, html: { class:"pure-form pure-form-aligned translations"} ) do |f|
+  .pure-control-group
+    = label_tag :original_body, t('translations.form.original')
     = text_field_tag :original_body, "", class: "body searchable"
     = select_tag(:original_language_id, options_for_select(languages_for_select), class: "language_id")
     = f.hidden_field :original_id, class: "primary"
-  %h1.content-subhead
-    Käännös
-  .row.original
+  .pure-control-group
+    = label_tag :original_body, t('translations.form.translation')
     = text_field_tag :translation_body, "", class: "body searchable"
     = select_tag(:translation_language_id, options_for_select(languages_for_select), class: "language_id")
     = f.hidden_field :translation_id, class: "primary"
-  .row
-    = f.submit("Luo käännös &rarr;".html_safe, class: "pure-button pure-button-primary")
+  .pure-controls
+    = f.submit(t('translations.form.submit'), class: "pure-button pure-button-primary")
+    or
+    = link_to t('translations.form.cancel'), translations_path

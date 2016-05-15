@@ -28,6 +28,7 @@ en:
     translations_link: "Translations"
     discussions_link: "Discussions"
     users_link: "Users"
+    profile_link: "Your Profile"
     log_off_link: "Log off"
   words:
     index:
@@ -46,6 +47,23 @@ en:
         word_class: "Word Class"
         submit: "Submit New Word"
         cancel: "Cancel"
+  translations:
+    index:
+      title: "Translations"
+      create_new_translation: "Create New Translation"
+      table:
+        created_at: "Created At"
+        original: "Original"
+        language: "Language"
+        translation: "Translation"
+        created_by: "Luonut"
+    new:
+      title: "New Translation"
+    form:
+      translation: "Translation"
+      original: "Original"
+      submit: "Create Translation"
+      cancel: "Cancel"
   users:
     index:
       title: "Users"

@@ -1,17 +1,17 @@
 %h1.content-subhead
-  Käännökset
+  = t('translations.index.title')
 %table.pure-table.translations
   %thead
     %tr
       %th #
-      %th Pvm
-      %th Alkuperäinen
-      %th Kieli
+      %th= t('translations.index.created_at')
+      %th= t('translations.index.original')
+      %th= t('translations.index.language')
       %th &nbsp;
-      %th Käännös
-      %th Kieli
-      %th Luonut
+      %th= t('translations.index.translation')
+      %th= t('translations.index.language')
+      %th= t('translations.index.created_by')
   %tbody
     = render @translations
 %p
-  = link_to "Luo uusi käännös &rarr;".html_safe, new_translation_path, class: "pure-button pure-button-primary"
+  = link_to t('translations.index.create_new_translation'), new_translation_path, class: "pure-button pure-button-primary"
