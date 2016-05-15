@@ -1,5 +1,15 @@
-= form_for(@word) do |f|
-  = f.text_field :body
-  = f.select :language_id, options_for_select(languages_for_select)
-  = f.select :word_class_id, options_for_select(word_classes_for_select)
-  = f.submit
+= form_for(@word, html: { class: "pure-form pure-form-aligned" }) do |f|
+  .pure-control-group
+    = f.label :body, t('words.new.form.body')
+    = f.text_field :body
+  .pure-control-group
+    = f.label :language_id, t('words.new.form.language_id')
+    = f.select :language_id, options_for_select(languages_for_select)
+  .pure-control-group
+    = f.label :word_class_id, t('words.new.form.word_class_id')
+    = f.select :word_class_id, options_for_select(word_classes_for_select)
+  .pure-controls
+    = f.submit value: t('words.new.form.submit'), class: "pure-button pure-button-primary"
+    or
+    = link_to  t('words.new.form.cancel'), words_path
+

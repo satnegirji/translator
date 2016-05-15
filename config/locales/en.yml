@@ -38,6 +38,14 @@ en:
         language: "Language"
         word_class: "Word Class"
       create_new_word: "Create new word"
+    new:
+      title: "New Word"
+      form:
+        body: "Body"
+        language: "Language"
+        word_class: "Word Class"
+        submit: "Submit New Word"
+        cancel: "Cancel"
   users:
     index:
       title: "Users"
