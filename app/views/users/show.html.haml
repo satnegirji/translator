@@ -1,0 +1,10 @@
+%h1.content-subhead
+  = t('users.show.title')
+%table.pure-table.pure-table-bordered
+  %tbody
+    %tr
+      %td= t('users.show.table.profile_name')
+      %td= @user.profile_name
+    %tr
+      %td= t('users.show.table.email')
+      %td= @user.email

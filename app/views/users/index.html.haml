@@ -1,0 +1,14 @@
+%h1.content-subhead
+  = t('users.index.title')
+%table.pure-table
+  %thead
+    %tr
+      %th #
+      %th= t('users.index.table.name')
+      %th= t('users.index.table.email')
+      %th= t('users.index.table.last_logon')
+      %th= t('users.index.table.created_at')
+
+  %tbody
+    = render @users
+

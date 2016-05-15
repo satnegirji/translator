@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [ :index, :show ]
+
   get '/dashboard', to: "dashboard#index", as: :dashboard
   post 'search', to: "dashboard#search", as: :search_for_words
 
