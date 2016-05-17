@@ -42,6 +42,14 @@ en:
         original: "Original"
     form:
       submit: "Search"
+    search:
+      results: "Results (%{count} words)"
+      title: "Search"
+      back: "Back"
+      table:
+        body: "Body"
+        language: "Language"
+        word_class: "Word Class"
 
   words:
     index:

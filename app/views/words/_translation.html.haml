@@ -1,0 +1,5 @@
+%tr
+  %td= translation.translation.id
+  %td= translation.translation.body
+  %td= Language::find(translation.translation.language_id)
+  %td= Language::WordClass.find(translation.translation.word_class_id)

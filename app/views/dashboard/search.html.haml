@@ -1,9 +1,16 @@
 %h1.content-subhead
-  Haku
+  = t('dashboard.search.title')
 = render 'form'
 %h1.content-subhead
-  Tulokset
-%ul
-  = render partial: "word", collection: @words, as: :word
+  = t('dashboard.search.results', count: @words.count)
+%table.pure-table.pure-table-bordered
+  %thead
+    %tr
+      %th #
+      %th= t('dashboard.search.table.body')
+      %th= t('dashboard.search.table.language')
+      %th= t('dashboard.search.table.word_class')
+  %tbody
+    = render partial: "word", collection: @words, as: :word
 %p
-  = link_to "Etusivulle", root_path, class: "pure-button pure-button-primary"
+  = link_to t('dashboard.search.back'), dashboard_path, class: "pure-button pure-button-primary"
