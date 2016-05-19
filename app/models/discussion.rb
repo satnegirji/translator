@@ -5,20 +5,17 @@ class Discussion < ApplicationRecord
   belongs_to :user
 
   scope :not_hidden, -> { where(hidden: false)}
-  scope :topics, -> { where( parent_id: nil ).order( pinned: :asc).order(:updated_at).not_hidden }
+  scope :topics, -> { where( parent_id: nil ).order( pinned: :desc).order(:updated_at).not_hidden }
   scope :from_thread, -> (parent_id) { where(parent_id: parent_id).not_hidden }
 
   def pinned=(value)
     # if discussion thread is topic, it can be pinned up
     unless self[:parent_id]
       self[:pinned] = value
+      true
     else
       false
     end
-  end
-
-  def pin!
-    pinned = true
   end
 
   def self.create_thread(topic, user)

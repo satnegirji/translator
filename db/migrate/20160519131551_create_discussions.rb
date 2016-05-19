@@ -1,4 +1,4 @@
-class CreateDiscussionModel < ActiveRecord::Migration[5.0]
+class CreateDiscussions < ActiveRecord::Migration[5.0]
   def change
     create_table :discussions do |t|
       t.text :body, null: false
@@ -7,6 +7,7 @@ class CreateDiscussionModel < ActiveRecord::Migration[5.0]
       t.integer :parent_id
       t.boolean :hidden, default: false, null: false
       t.boolean :pinned, default: false, null: false
+      t.timestamps null: false
     end
   end
 end
