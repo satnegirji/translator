@@ -11,7 +11,7 @@ namespace :json do
 
 
 
-    puts db.to_json
+    puts JSON.pretty_generate(db)
   end
 
 
