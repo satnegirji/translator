@@ -38,6 +38,15 @@ class DiscussionTest < ActiveSupport::TestCase
     thread_second.save!
     assert_equal Discussion.topics.map {|x| x.title }.first, "This should be first"
     assert_equal Discussion.topics.map {|x| x.title }.second, "This should be second"
+  end
 
+  test "hidden discussions should not appead on discussion topic list" do
+    user = create_default_user
+    Discussion.create_thread( "Random topic 1", user )
+    Discussion.create_thread( "Random topic 2", user )
+    hidden_thread = Discussion.create_thread( "Hidden", user )
+    hidden_thread.hidden = true
+    hidden_thread.save
+    assert_equal Discussion.topics.map {|x| x.title }, ["Random topic 1", "Random topic 2"]
   end
 end
