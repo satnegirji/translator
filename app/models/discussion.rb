@@ -22,7 +22,11 @@ class Discussion < ApplicationRecord
     create( title: topic, user: user, parent_id: nil, body: "" )
   end
 
-  def is_thread?
+  def thread?
     self[:parent_id] == nil
+  end
+
+  def self.create_answer(body, user, parent)
+    create( title: "", body: body, user: user, parent_id: parent )
   end
 end

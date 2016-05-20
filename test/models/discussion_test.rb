@@ -49,4 +49,12 @@ class DiscussionTest < ActiveSupport::TestCase
     hidden_thread.save
     assert_equal Discussion.topics.map {|x| x.title }, ["Random topic 1", "Random topic 2"]
   end
+
+  test "discussion without a parent makes it a discussion thread" do
+    user = create_default_user
+    discussion = Discussion.new( title: "title", user: user, parent_id: nil)
+    assert discussion.thread?, true
+    answer = Discussion.create_answer("answer", user, discussion)
+    assert answer.thread?, false
+  end
 end
