@@ -1,0 +1,4 @@
+%ul
+  = render partial: "topics", collection: @discussions, as: :discussion
+%p
+  = link_to "Create topic", new_discussion_path

@@ -1,0 +1,11 @@
+= form_for(@discussion, html: { class: "discussion-form pure-form pure-form-aligned"} ) do |f|
+  .pure-control-group
+    = f.label :title
+    = f.text_field :title, class: "title"
+  .pure-control-group
+    = f.label :body
+    = f.text_area :body, class: "body"
+  .pure-controls
+    = f.submit
+    or
+    = link_to "Cancel", discussions_path

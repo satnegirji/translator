@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :discussions do
+    member do
+      post 'create', to: "discussions#new_answer", as: :create_answer
+    end
+  end
+
   resources :users, only: [ :index, :show ]
 
   get '/dashboard', to: "dashboard#index", as: :dashboard

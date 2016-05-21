@@ -1,0 +1,4 @@
+%p= @discussion.title
+%p= @discussion.body
+%ul
+  = render partial:"answer", collection: @discussion.answers, as: :discussion
