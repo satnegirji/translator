@@ -1,5 +1,5 @@
 %p= @discussion.title
 %p= @discussion.body
 %ul
-  = render partial:"answer", collection: @discussion.answers, as: :discussion
-= render 'answer_form'
+  = render partial:"reply", collection: @discussion.replies, as: :discussion
+= render 'reply_form'

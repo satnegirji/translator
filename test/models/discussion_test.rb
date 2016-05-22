@@ -9,19 +9,19 @@ class DiscussionTest < ActiveSupport::TestCase
     thread1 = Discussion.create_thread( "Example", user )
     thread2 = Discussion.create_thread( "Jedi Temple", user )
 
-    thread1.answers.create( body: "This is an example", user: user )
-    thread1.answers.create( body: "Gasp! Yet another example", user: user )
-    thread2.answers.create( body: "Anyone knows where the Jedi Temple is?", user: user )
-    thread2.answers.create( body: "Nevermind, I found it", user: user )
+    thread1.replies.create( body: "This is an example", user: user )
+    thread1.replies.create( body: "Gasp! Yet another example", user: user )
+    thread2.replies.create( body: "Anyone knows where the Jedi Temple is?", user: user )
+    thread2.replies.create( body: "Nevermind, I found it", user: user )
     [thread1, thread2]
   end
 
   test "pinned discussion can only be a topic of a thread" do
     user = create_default_user
     thread1, thread2 = create_defaults(user)
-    answer = thread1.answers.first
-    answer.pinned = true
-    assert_equal answer.pinned, false
+    reply = thread1.replies.first
+    reply.pinned = true
+    assert_equal reply.pinned, false
     thread1.pinned = true
     assert_equal thread1.pinned, true
   end
@@ -54,7 +54,7 @@ class DiscussionTest < ActiveSupport::TestCase
     user = create_default_user
     discussion = Discussion.new( title: "title", user: user, parent_id: nil)
     assert discussion.thread?, true
-    answer = Discussion.create_answer("answer", user, discussion)
-    assert answer.thread?, false
+    reply = Discussion.create_reply("reply", user, discussion)
+    assert reply.thread?, false
   end
 end

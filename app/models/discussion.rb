@@ -1,6 +1,6 @@
 class Discussion < ApplicationRecord
 
-  has_many :answers, class_name: "Discussion", foreign_key: "parent_id"
+  has_many :replies, class_name: "Discussion", foreign_key: "parent_id"
 
   belongs_to :user
 
@@ -26,7 +26,7 @@ class Discussion < ApplicationRecord
     self[:parent_id] == nil
   end
 
-  def self.create_answer(body, user, parent)
+  def self.create_reply(body, user, parent)
     create( title: "", body: body, user: user, parent_id: parent )
   end
 end

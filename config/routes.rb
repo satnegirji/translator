@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :discussions do
     member do
-      post 'create', to: "discussions#create_answer", as: :create_answer
+      post 'create', to: "discussions#reply", as: :reply
+      patch 'update', to: "discussions#update_reply", as: :update_reply
     end
   end
 
