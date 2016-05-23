@@ -1,5 +1,10 @@
-%p= @discussion.title
-%p= @discussion.body
-%ul
-  = render partial:"reply", collection: @discussion.replies, as: :discussion
-= render 'reply_form'
+.pure-g
+  .pure-u-1-8
+    = link_to "Back", discussions_path, class: "pure-button pure-button-primary"
+  .pure-u-7-8
+    .topic
+      = render partial: 'message', object: @discussion, as: :message
+    .messages
+      = render partial: "message", collection: @discussion.replies, as: :message
+    .new-reply
+      = render 'reply_form'

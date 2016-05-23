@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :discussions do
     member do
       post 'create', to: "discussions#reply", as: :reply
-      patch 'update', to: "discussions#update_reply", as: :update_reply
+      get 'edit/:reply_id', to: "discussions#edit_reply", as: :edit_reply
+      patch 'update/:reply_id', to: "discussions#update_reply", as: :update_reply
     end
   end
 

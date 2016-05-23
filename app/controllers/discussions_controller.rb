@@ -32,10 +32,37 @@ class DiscussionsController < ApplicationController
     end
   end
 
+  def update_reply
+    @discussion = find_visible_discussion(params[:id])
+    if @discussion && @reply = find_visible_discussion(params[:reply_id], current_user)
+      if @reply.update(body: discussion_params[:body])
+        redirect_to @discussion
+      else
+        render 'edit_reply'
+      end
+    else
+      render 'edit_reply'
+    end
+  end
+
+  def edit_reply
+    puts "  edit_reply() #{params.inspect}"
+    @discussion = find_visible_discussion(params[:id])
+    if @discussion && @reply = find_visible_discussion(params[:reply_id], current_user)
+      render 'edit_reply'
+    else
+      redirect_to @discussion
+    end
+  end
+
   private
 
-  def find_visible_discussion(id)
-    Discussion.where(hidden: false).find(id)
+  def find_visible_discussion(id, user = nil)
+    if user
+      Discussion.where(hidden:false, user: user).find(id)
+    else
+      Discussion.where(hidden: false).find(id)
+    end
   end
   def discussion_params
     params.require(:discussion).permit(:title, :body)

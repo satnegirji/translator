@@ -1,4 +1,5 @@
-%ul
-  = render partial: "topics", collection: @discussions, as: :discussion
-%p
-  = link_to "Create topic", new_discussion_path
+.pure-g
+  .pure-u-1-8
+    = link_to "Create topic", new_discussion_path, class: "pure-button pure-button-primary"
+  .pure-u-7-8
+    = render partial: "topic", collection: @discussions, as: :message

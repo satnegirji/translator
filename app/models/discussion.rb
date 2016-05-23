@@ -29,4 +29,12 @@ class Discussion < ApplicationRecord
   def self.create_reply(body, user, parent)
     create( title: "", body: body, user: user, parent_id: parent )
   end
+
+  def parent
+    if parent_id
+      Discussion.find(parent_id)
+    else
+      nil
+    end
+  end
 end
