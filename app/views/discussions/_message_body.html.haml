@@ -1,0 +1,5 @@
+.message
+  .body= message.body if message.body  && message.parent_id
+  .bottom-footer
+    .created_at= message.created_at.to_s(:short)
+    .updated_at= message.updated_at.to_s(:short)

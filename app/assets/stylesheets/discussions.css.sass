@@ -1,3 +1,21 @@
-$border-color: #999
-.message
-  border: 1px solid $border-color
+
+$message-border-background-color: #f4f4f4
+$message-border-color: #e1e1e1
+$message-unit: 1em
+
+.messages
+  padding: $message-unit
+  .message
+    background-color: $message-border-background-color
+    border: 1px solid $message-border-color
+
+    .bottom-footer
+      display: inline-block
+      border: 1px solid red
+      width: 100%
+      padding: 0
+      margin: 0
+      .created_at, .updated_at
+        display: inline-block
+        padding: 0
+        margin: 0

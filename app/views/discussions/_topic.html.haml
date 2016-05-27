@@ -1,7 +1,4 @@
 .message
   .title= link_to(message.title, discussion_path(message)) if message.title
-  .body= message.body if message.body && message.parent_id
-  .information
-    .created_at= message.created_at.to_s(:short)
-    .updated_at= message.updated_at.to_s(:short)
+  = render partial: 'message_body', object: message, as: :message
 
