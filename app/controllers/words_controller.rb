@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @words = Word.all
+    @words = Word.most_recent.order(created_at: :desc)
   end
 
   def new
