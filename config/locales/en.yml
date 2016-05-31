@@ -99,5 +99,8 @@ en:
       table:
         profile_name: "Profile name"
         email: "Email"
+  discussions:
+    empty_index:
+      message: "There are no discussions yet, maybe you will start the first one?"
 
 
