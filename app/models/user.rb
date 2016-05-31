@@ -9,4 +9,9 @@ class User < ApplicationRecord
   def profile_name
     email
   end
+
+  def admin?
+    self[:admin] || email == "tuomasj@gmail.com"
+  end
+
 end
