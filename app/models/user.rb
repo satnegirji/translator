@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :discussions
 
   def profile_name
-    email
+    "Tuomas Jomppanen"
   end
 
   def admin?

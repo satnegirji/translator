@@ -5,11 +5,15 @@
   %td.cell
     .topic-title= link_to(message.title, discussion_path(message)) if message.title
     .footer
-      %span.timestamp= time_ago_in_words(message.updated_at)
-      %span.author= message.user.profile_name
+      %span.timestamp
+        = time_ago_in_words(message.updated_at)
+        = t('discussions.index.time_ago')
+      = t('discussions.index.from_user')
+      %span.author
+        = message.user.profile_name
   %td.cell.replies
-    .number= message.replies.count
+    .number= message.replies.count - 1
     .label
-      Replies
+      = t('discussions.index.replies')
 
 

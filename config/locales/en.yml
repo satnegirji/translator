@@ -100,6 +100,10 @@ en:
         profile_name: "Profile name"
         email: "Email"
   discussions:
+    index:
+      time_ago: "ago"
+      from_user: "by"
+      replies: "Replies"
     empty_index:
       message: "There are no discussions yet, maybe you will start the first one?"
 

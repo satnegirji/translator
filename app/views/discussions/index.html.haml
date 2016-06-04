@@ -1,5 +1,7 @@
 .sub-menu
-  = link_to "Create topic", new_discussion_path, class: "pure-button pure-button-primary"
+  = link_to new_discussion_path, class: "pure-button pure-button-primary" do
+    %i.fa.fa-pencil-square-o
+    = t('discussions.index.new_topic')
 .main-content
   %table.messages
     %tbody
