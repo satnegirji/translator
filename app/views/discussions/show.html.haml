@@ -1,5 +1,5 @@
 .sub-menu
-    = link_to "Back", discussions_path, class: "pure-button pure-button-primary"
+  = link_to "Back", discussions_path, class: "pure-button pure-button-primary"
 .main-content
   .topic
     = render partial: 'message', object: @discussion, as: :message

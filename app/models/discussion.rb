@@ -5,7 +5,7 @@ class Discussion < ApplicationRecord
   belongs_to :user
 
   scope :not_hidden, -> { where(hidden: false)}
-  scope :topics, -> { where( parent_id: nil ).order( pinned: :desc).order(:updated_at).not_hidden }
+  scope :topics, -> { where( parent_id: nil ).order( pinned: :desc).order(updated_at: :desc).not_hidden }
   scope :from_thread, -> (parent_id) { where(parent_id: parent_id).not_hidden }
 
   def pinned=(value)

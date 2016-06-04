@@ -1,21 +1,28 @@
 
-$message-border-background-color: #f4f4f4
+$message-border-background-color: #ffffff
 $message-border-color: #e1e1e1
 $message-unit: 1em
+$message-icon-color: #aaa
 
 .messages
   padding: $message-unit
-  .message
-    background-color: $message-border-background-color
-    border: 1px solid $message-border-color
-
-    .bottom-footer
-      display: inline-block
-      border: 1px solid red
-      width: 100%
-      padding: 0
-      margin: 0
-      .created_at, .updated_at
-        display: inline-block
-        padding: 0
-        margin: 0
+  width: 80%
+  margin: 0 auto
+  background-color: $message-border-background-color
+  .icon-cell
+    width: 3em
+  .icon
+    font-size: 3em
+    color: $message-icon-color
+    width: 1.35em
+  .topic-title
+    font-size: 1.5em
+  .footer
+    font-size: 0.8em
+    text-align: left
+    margin: 0.45em 0 0 0
+    padding: 0
+  .replies
+    text-align: center
+  .cell
+    padding-bottom: 0.75em

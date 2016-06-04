@@ -1,4 +1,15 @@
-.message
-  .title= link_to(message.title, discussion_path(message)) if message.title
-  = render partial: 'message_body', object: message, as: :message
+%tr
+  %td.cell.icon-cell
+    .icon
+      %i.fa.fa-envelope-o
+  %td.cell
+    .topic-title= link_to(message.title, discussion_path(message)) if message.title
+    .footer
+      %span.timestamp= time_ago_in_words(message.updated_at)
+      %span.author= message.user.profile_name
+  %td.cell.replies
+    .number= message.replies.count
+    .label
+      Replies
+
 
