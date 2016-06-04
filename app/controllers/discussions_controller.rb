@@ -3,7 +3,13 @@ class DiscussionsController < ApplicationController
 
   def index
     @discussions = Discussion.topics
+    if @discussions.length == 0
+      render :empty_index
+    else
+      render :index
+    end
   end
+
 
   def show
     @discussion = find_visible_discussion(params[:id])

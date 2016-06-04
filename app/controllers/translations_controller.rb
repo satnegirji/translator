@@ -7,7 +7,7 @@ class TranslationsController < ApplicationController
   end
 
   def index
-    @translations = Translation.all.order(created_at: :desc)
+    @translations = Translation.most_recent.order(created_at: :desc)
   end
 
   def create

@@ -1,5 +1,5 @@
 .sub-menu
   = link_to "Create topic", new_discussion_path, class: "pure-button pure-button-primary"
 .main-content
-  .messages
-    = render partial: "topic", collection: @discussions, as: :message
+  .big-notification
+    = t('discussions.empty_index.message')

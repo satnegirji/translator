@@ -1,10 +1,11 @@
 .pure-menu.pure-menu-horizontal
   .pure-menu-heading.nav-element-fix
-    = t('main_nav.menu_heading')
+    = main_nav_menu_heading
   %ul.pure-menu-list
     %li.pure-menu-item= link_to t('main_nav.dashboard_link'), dashboard_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.words_link'), words_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.translations_link'), translations_path, class: "pure-menu-link"
+    %li.pure-menu-item= link_to t('main_nav.discussions_link'), discussions_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.users_link'), users_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.profile_link'), edit_user_registration_path, class: "pure-menu-link"
     %li.pure-menu-item= link_to t('main_nav.log_off_link'), destroy_user_session_path, class: "pure-menu-link", method: :delete
