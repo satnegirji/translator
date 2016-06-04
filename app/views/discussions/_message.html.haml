@@ -1,4 +1,4 @@
-.message
-  .title= message.title if message.title
+%tr
+  %td.message-title= message.title if message.title
   = render partial: 'message_body', object: message, as: :message
 

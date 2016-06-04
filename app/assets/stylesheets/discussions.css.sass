@@ -3,11 +3,12 @@ $message-border-background-color: #ffffff
 $message-border-color: #e1e1e1
 $message-unit: 1em
 $message-icon-color: #aaa
+$message-text-color: #595959
 
 .messages
   padding: $message-unit
   width: 80%
-  margin: 0 auto
+  margin: ($message-unit*2) auto 0 auto
   background-color: $message-border-background-color
   .icon-cell
     width: 3em
@@ -16,12 +17,16 @@ $message-icon-color: #aaa
     color: $message-icon-color
     width: 1.35em
   .topic-title
-    font-size: 1.5em
+    font-size: 1.25em
+    a
+      color: $message-text-color
+      font-weight: bold
   .footer
     font-size: 0.8em
     text-align: left
     margin: 0.45em 0 0 0
     padding: 0
+    color: lighten($message-text-color, 33%)
   .replies
     text-align: center
   .cell
