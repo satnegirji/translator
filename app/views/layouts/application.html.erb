@@ -12,8 +12,7 @@
 
   <body>
     <div class="content">
-      <%= render 'shared/main_nav' %>
-
+      <%= render 'shared/main_nav' if user_signed_in? %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
