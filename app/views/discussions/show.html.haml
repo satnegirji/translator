@@ -5,5 +5,7 @@
     %tbody
       = render partial: 'message', object: @discussion, as: :message
       = render partial: "message", collection: @discussion.replies, as: :message
-  .new-reply
-    = render 'reply_form'
+  %table.new-reply
+    %tbody
+      %tr
+        = render 'reply_form'
