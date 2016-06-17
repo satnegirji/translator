@@ -1,9 +1,9 @@
 .sub-menu
   = link_to "Back", discussions_path, class: "pure-button pure-button-primary"
 .main-content
-  .topic
-    = render partial: 'message', object: @discussion, as: :message
-  .messages
-    = render partial: "message", collection: @discussion.replies, as: :message
+  %table.messages
+    %tbody
+      = render partial: 'message', object: @discussion, as: :message
+      = render partial: "message", collection: @discussion.replies, as: :message
   .new-reply
     = render 'reply_form'

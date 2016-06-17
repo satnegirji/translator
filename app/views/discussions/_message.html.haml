@@ -1,4 +1,15 @@
 %tr
-  %td.message-title= message.title if message.title
-  = render partial: 'message_body', object: message, as: :message
+  %td.cell.icon-cell
+    .icon
+  %td
+    .cell.message-title= message.title if message.title
+    .topic-body= message.body
+    .footer
+      %span.timestamp
+        = time_ago_in_words(message.last_reply.updated_at)
+        = t('discussions.index.time_ago')
+      = t('discussions.index.from_user')
+      %span.author
+        = message.last_reply.user.email
+
 
