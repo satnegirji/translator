@@ -1,8 +1,31 @@
+.pure-g
+  .pure-u-1-3
+    %h1.content-subhead
+      = t('translations.show.translations_detail')
+    %table.pure-table.pure-table-bordered
+      %tbody
+        %tr
+          %td.cell-header #
+          %td= @translation.id
+        %tr
+          %td.cell-header= t('translations.show.table.original')
+          %td
+            = link_to @translation.original.body, @translation.original
+            = "(#{Language.find(@translation.original.language_id)})"
+        %tr
+          %td.cell-header= t('translations.show.table.translation')
+          %td
+            = link_to @translation.translation.body, @translation.translation
+            = "(#{Language.find(@translation.translation.language_id)})"
+        %tr
+          %td.cell-header= t('translations.show.table.created_at')
+          %td= @translation.created_at.to_s(:short)
+        %tr
+          %td.cell-header= t('translations.show.table.updated_at')
+          %td= @translation.updated_at.to_s(:short)
+        %tr
+          %td.cell-header= t('translations.show.table.created_by')
+          %td= @translation.creator.email
 %p
-  = "Translation #{@translation.id} (#{@translation.original_id}) -> (#{@translation.translation.id})"
-  %p
-    = "Original: #{@translation.original.body}"
-  %p
-    = "Translation: #{@translation.translation.body}"
-  %p
-    = @translation.creator.email
+  = link_to t('translations.show.back'), words_path, class: "pure-button pure-button-primary"
+
