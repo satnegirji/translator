@@ -1,7 +1,7 @@
 %tr
   %td.cell.icon-cell
     .icon
-  %td.cell
+  %td
     = form_for(@reply, url: reply_discussion_path(@discussion), html: { class: "pure-form pure-form-stacked reply-form"}) do |f|
-      = f.text_area :body
+      = f.text_area :body, class: "pure-input-1", rows: 6
       = f.submit "Reply", class: "pure-button"

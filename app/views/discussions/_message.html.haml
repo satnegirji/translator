@@ -1,15 +1,17 @@
-%tr
+%tr.message-row
   %td.cell.icon-cell
     .icon
   %td
-    .cell.message-title= message.title if message.title
-    .topic-body= message.body
-    .footer
-      %span.timestamp
-        = time_ago_in_words(message.last_reply.updated_at)
-        = t('discussions.index.time_ago')
-      = t('discussions.index.from_user')
-      %span.author
-        = message.last_reply.user.email
+    .message-body
+      - if message.title && message.title.length > 0
+        .cell.message-title= message.title
+      .topic-body= simple_format(message.body)
+      .footer
+        %span.timestamp
+          = time_ago_in_words(message.last_reply.updated_at)
+          = t('discussions.index.time_ago')
+        = t('discussions.index.from_user')
+        %span.author
+          = message.last_reply.user.email
 
 
