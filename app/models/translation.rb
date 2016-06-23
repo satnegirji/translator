@@ -11,7 +11,7 @@ class Translation < ApplicationRecord
     original_id = params.fetch(:original_id)
     translation_id = params.fetch(:translation_id)
     creator_id = params.fetch(:creator_id)
-    create( creator_id: creator_id, original_id: original_id, translation_id: translation_id)
-    create( creator_id: creator_id, translation_id: original_id, original_id: translation_id)
+    original = create( creator_id: creator_id, original_id: original_id, translation_id: translation_id)
+    translation = create( creator_id: creator_id, translation_id: original_id, original_id: translation_id)
   end
 end

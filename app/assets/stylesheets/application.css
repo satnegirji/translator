@@ -12,6 +12,7 @@
  *
 
  *= require purecss
+ *= require purecss-ext
  *= require autocomplete
  *= require translations
  *= require layout
