@@ -11,7 +11,7 @@ class TranslationsController < ApplicationController
   end
 
   def create
-    if @translation = Translation.create(translation_params)
+    if @translation = Translation.create_two_way_translation(translation_params)
       redirect_to translation_path(@translation)
     else
       render 'new'
