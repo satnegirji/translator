@@ -5,4 +5,6 @@ class WordDescription < ApplicationRecord
   validates :word_id, presence: true
 
   validates :word_id, uniqueness: { scope: :language_id, message: "Only one description per language"}
+
+  belongs_to :word
 end

@@ -4,7 +4,7 @@ class Word < ApplicationRecord
   validates :language_id, presence: true
   validates :creator, presence: true
   has_many :translations, foreign_key: "original_id"
-
+  has_many :descriptions, class_name: "WordDescription", foreign_key: "word_id"
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
 
   before_validation :set_accent

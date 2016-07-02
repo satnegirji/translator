@@ -27,13 +27,19 @@ class DiscussionTest < ActiveSupport::TestCase
   end
 
   test "pinned discussions appread first in discussion topic list" do
+    now = DateTime.now
     user = create_default_user
-    Discussion.create_thread( "Unpinned topic 1", user )
+    d = Discussion.create_thread( "Unpinned topic 1", user )
+    d.updated_at = now
     thread_first = Discussion.create_thread( "This should be first", user )
+    thread_first.updated_at = 1.hour.ago
     thread_second = Discussion.create_thread( "This should be second", user )
-    Discussion.create_thread( "Unpinned topic 2", user )
+    thread_second.updated_at = 2.hour.ago
+    unpinned = Discussion.create_thread( "Unpinned topic 2", user )
+    unpinned.updated_at = 3.hour.ago
+    unpinned.save
     thread_first.pinned = true
-    thread_first.save!
+    thread_first.save
     thread_second.pinned = true
     thread_second.save!
     assert_equal Discussion.topics.map {|x| x.title }.first, "This should be first"
@@ -42,8 +48,12 @@ class DiscussionTest < ActiveSupport::TestCase
 
   test "hidden discussions should not appead on discussion topic list" do
     user = create_default_user
-    Discussion.create_thread( "Random topic 1", user )
-    Discussion.create_thread( "Random topic 2", user )
+    d1 = Discussion.create_thread( "Random topic 1", user )
+    d1.updated_at = 2.hours.ago
+    d1.save
+    d2 = Discussion.create_thread( "Random topic 2", user )
+    d2.updated_at = 3.hours.ago
+    d2.save
     hidden_thread = Discussion.create_thread( "Hidden", user )
     hidden_thread.hidden = true
     hidden_thread.save
@@ -52,9 +62,9 @@ class DiscussionTest < ActiveSupport::TestCase
 
   test "discussion without a parent makes it a discussion thread" do
     user = create_default_user
-    discussion = Discussion.new( title: "title", user: user, parent_id: nil)
-    assert discussion.thread?, true
-    reply = Discussion.create_reply("reply", user, discussion)
-    assert reply.thread?, false
+    discussion = Discussion.create( title: "title", body: "terve", user: user, parent_id: nil)
+    assert discussion.thread?
+    reply = Discussion.create_reply("reply", user, discussion.id)
+    assert_not reply.thread?
   end
 end

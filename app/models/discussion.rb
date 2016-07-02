@@ -36,8 +36,9 @@ class Discussion < ApplicationRecord
   end
 
   def self.create_reply(body, user, parent_id)
-    create( title: "", body: body, user: user, parent_id: parent_id )
+    reply = create( title: "", body: body, user: user, parent_id: parent_id )
     update_replied_at(parent_id)
+    reply
   end
 
   def parent
