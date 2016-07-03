@@ -1,7 +1,8 @@
 %tr
-  %td= word.id
+  %td= link_to word.id, word
   %td= link_to word.body, word
   %td= word.keyword
   %td= Language.find(word.language_id)
   %td= Language::WordClass.find(word.word_class_id)
   %td= word.creator.email
+  %td= word.descriptions.count

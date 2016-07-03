@@ -2,31 +2,19 @@
   .pure-u-1-3
     %h1.content-subhead
       = t('words.show.word_detail')
+    = render 'word_detail'
+  .pure-u-2-3
+    %h1.content-subhead
+      = t('words.show.word_descriptions')
     %table.pure-table.pure-table-bordered
+      %thead
+        %tr
+          %th #
+          %th= t('words.show.table.word_descriptions.language')
+          %th= t('words.show.table.word_descriptions.description')
+          %th= t('words.show.table.word_descriptions.action')
       %tbody
-        %tr
-          %td.cell-header #
-          %td= @word.id
-        %tr
-          %td.cell-header= t('words.show.table.body')
-          %td= @word.body
-        %tr
-          %td.cell-header= t('words.show.table.keyword')
-          %td= @word.keyword
-        %tr
-          %td.cell-header= t('words.show.table.language')
-          %td= Language.find(@word.language_id)
-        %tr
-          %td.cell-header= t('words.show.table.word_class')
-          %td= Language::WordClass.find(@word.word_class_id)
-        %tr
-          %td.cell-header= t('words.show.table.created_at')
-          %td= @word.created_at.to_s(:short)
-        %tr
-          %td.cell-header= t('words.show.table.updated_at')
-          %td= @word.updated_at.to_s(:short)
-        %tr
-          %td.cell-header= t('words.show.table.created_by')
-          %td= @word.creator.email
+        = render partial: "word_description", collection: @word.descriptions, as: :word_description
+    = link_to t('words.show.table.word_description.create_new'), new_word_word_description_path(@word)
 %p
   = link_to t('words.show.back'), words_path, class: "pure-button pure-button-primary"
