@@ -1,6 +1,6 @@
 %tr
   %td= word_description.id
-  %td= word_description.language_id
+  %td= Language::find(word_description.language_id)
   %td= word_description.body
   %td
     = link_to t('words.word_description.edit'), edit_word_word_description_path(@word, word_description)
