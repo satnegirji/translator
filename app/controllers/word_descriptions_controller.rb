@@ -7,6 +7,7 @@ class WordDescriptionsController < ApplicationController
 
   def create
     if @word_description = word.descriptions.create(word_description_params)
+      flash[:success] = t('words.word_description.form.successfully_created')
       redirect_to @word
     else
       render 'new'
@@ -25,6 +26,13 @@ class WordDescriptionsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @word_description = word.descriptions.find(params[:id])
+    @word_description.destroy
+    flash[:success] = t('words.word_description.form.successfully_deleted')
+    redirect_to @word
   end
 
   private
