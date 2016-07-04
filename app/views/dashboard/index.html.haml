@@ -2,7 +2,7 @@
   = t('dashboard.index.title')
 = render 'form'
 .pure-g
-  .pure-u-1-3
+  .pure-u-1-2
     %h1.content-subhead
       = t('dashboard.index.recent_words')
     %table.pure-table.pure-table-stacked
@@ -13,7 +13,7 @@
           %th= t('dashboard.index.language')
           %th= t('dashboard.index.word_class')
       = render partial: "word", collection: @latest_words, as: :word
-  .pure-u-2-3
+  .pure-u-1-2
     %h1.content-subhead
       = t('dashboard.index.recent_translations')
     %table.pure-table.pure-table-stacked

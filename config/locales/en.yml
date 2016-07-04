@@ -69,6 +69,11 @@ en:
         word_class: "Word Class"
         submit: "Submit New Word"
         cancel: "Cancel"
+    word_description:
+      form:
+        body: "Body"
+        language: "Language"
+        submit: "Create new description"
   translations:
     index:
       title: "Translations"
