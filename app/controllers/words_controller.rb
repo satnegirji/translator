@@ -13,6 +13,16 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
 
+  def update
+    @word = Word.find(params[:id])
+    if @word.update_attributes(word_params)
+      flash[:success] = t('words.word_description.form.successfully_updated')
+      redirect_to @word
+    else
+      render 'edit'
+    end
+  end
+
   def edit
     @word = Word.find(params[:id])
   end
