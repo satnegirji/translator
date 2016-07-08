@@ -1,5 +1,8 @@
 $alert-margin: 0.5em
 $alert-success-color: #d8f2ff
+$alert-alert-color: #ffe2d8
+$alert-notice-color: #d8f2ff
+
 .alert
   border: 1px solid black
   margin: $alert-margin*2 0 $alert-margin 0
@@ -7,3 +10,9 @@ $alert-success-color: #d8f2ff
 .alert-success
   background-color: $alert-success-color
   border-color: darken($alert-success-color, 50%)
+.alert-alert
+  background-color: $alert-alert-color
+  border-color: darken($alert-alert-color, 50%)
+.alert-notice
+  background-color: $alert-notice-color
+  border-color: darken($alert-notice-color, 50%)
