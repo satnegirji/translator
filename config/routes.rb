@@ -9,11 +9,6 @@ Rails.application.routes.draw do
       get 'search', as: :search
     end
     resources :word_descriptions
-    #member do
-    #  scope :word_descriptions do
-    #    get 'new', to: "word_descriptions#new", as: :new_word_description
-    #  end
-    #end
   end
 
   resources :discussions do
