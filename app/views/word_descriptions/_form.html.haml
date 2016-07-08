@@ -1,4 +1,9 @@
 = form_for([@word, @word_description], html: { class: "pure-form pure-form-aligned" }) do |f|
+  - if @word_description.errors.any?
+    .alert.alert-alert
+      %ul.minimal
+        - @word_description.errors.messages.each do |k,v|
+          %li= v.first
   .pure-control-group
     = f.label :language_id, t('words.word_description.form.language_id')
     = f.select :language_id, options_for_select(languages_for_select)

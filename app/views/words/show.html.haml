@@ -12,6 +12,7 @@
           %th #
           %th= t('words.show.table.word_descriptions.language')
           %th= t('words.show.table.word_descriptions.description')
+          %th= t('words.show.table.word_descriptions.creator')
           %th= t('words.show.table.word_descriptions.action')
       %tbody
         = render partial: "word_description", collection: @word.descriptions, as: :word_description

@@ -6,7 +6,9 @@ class WordDescriptionsController < ApplicationController
   end
 
   def create
-    if @word_description = word.descriptions.create(word_description_params)
+    params = word_description_params.merge( creator: current_user )
+    @word_description = word.descriptions.build(params)
+    if @word_description.save
       flash[:success] = t('words.word_description.form.successfully_created')
       redirect_to @word
     else

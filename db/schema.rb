@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630142736) do
+ActiveRecord::Schema.define(version: 20160708170401) do
 
   create_table "discussions", force: :cascade do |t|
     t.text     "body",                       null: false
@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 20160630142736) do
   end
 
   create_table "word_descriptions", force: :cascade do |t|
-    t.integer  "word_id",     null: false
-    t.text     "body",        null: false
-    t.integer  "language_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "word_id",                 null: false
+    t.text     "body",                    null: false
+    t.integer  "language_id",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "creator_id",  default: 0, null: false
     t.index ["word_id", "language_id"], name: "index_word_descriptions_on_word_id_and_language_id"
   end
 
